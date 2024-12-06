@@ -1,5 +1,11 @@
 package com.example.data.remote.api
 
-interface ApiWeatherService {
+import com.example.data.remote.CITY_PARAMETER_ID
+import okhttp3.Response
+import retrofit2.http.GET
+import retrofit2.http.Query
 
+interface ApiWeatherService {
+    @GET
+    fun getWeatherByCity(@Query(CITY_PARAMETER_ID) city: String): Response
 }
