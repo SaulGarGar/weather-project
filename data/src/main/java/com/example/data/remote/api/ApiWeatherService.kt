@@ -1,6 +1,6 @@
 package com.example.data.remote.api
 
-import com.example.data.remote.CITY_PARAMETER_ID
+import com.example.data.util.CITY_PARAMETER_ID
 import okhttp3.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

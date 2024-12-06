@@ -7,7 +7,7 @@ import javax.inject.Inject
 class WeatherRepositoryImpl @Inject constructor(
     private val apiWeatherService: ApiWeatherService
 ) : WeatherRepository {
-    override suspend fun getWeather() {
-        TODO("Not yet implemented")
+    override suspend fun getWeatherByCity(city: String) {
+        apiWeatherService.getWeatherByCity(city)
     }
 }

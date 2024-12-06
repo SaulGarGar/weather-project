@@ -1,5 +1,5 @@
 package com.example.domain.repository
 
 interface WeatherRepository {
-    suspend fun getWeather() //TODO: Create weather response
+    suspend fun getWeatherByCity(city: String) //TODO: Create weather response
 }

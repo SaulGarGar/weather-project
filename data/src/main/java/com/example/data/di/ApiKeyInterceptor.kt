@@ -1,7 +1,7 @@
 package com.example.data.di
 
-import com.example.data.remote.WEATHER_API_KEY
-import com.example.data.remote.WEATHER_API_KEY_PARAMETER_ID
+import com.example.data.util.WEATHER_API_KEY
+import com.example.data.util.WEATHER_API_KEY_PARAMETER_ID
 import okhttp3.Interceptor
 import okhttp3.Interceptor.Chain
 import okhttp3.Response

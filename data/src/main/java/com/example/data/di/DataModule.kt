@@ -1,8 +1,6 @@
 package com.example.data.di
 
-import com.example.data.remote.WEATHER_API_KEY
-import com.example.data.remote.WEATHER_API_KEY_PARAMETER_ID
-import com.example.data.remote.WEATHER_BASE_URL
+import com.example.data.util.WEATHER_BASE_URL
 import com.example.data.remote.api.ApiWeatherService
 import com.example.data.remote.repository.WeatherRepositoryImpl
 import com.example.domain.repository.WeatherRepository
@@ -11,9 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor.Chain
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
