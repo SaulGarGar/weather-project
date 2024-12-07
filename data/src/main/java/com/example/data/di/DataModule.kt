@@ -10,6 +10,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -27,8 +28,13 @@ object DataModule {
     @Provides
     @Singleton
     fun provideRetrofit(moshi: Moshi): Retrofit {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(ApiKeyInterceptor())
+            .addInterceptor(loggingInterceptor)
             .build()
 
         return Retrofit.Builder()

@@ -10,7 +10,7 @@ class ApiKeyInterceptor : Interceptor {
 
     override fun intercept(chain: Chain): Response {
         val originalRequest = chain.request()
-        val originalUrl = originalRequest.url()
+        val originalUrl = originalRequest.url
 
         val urlWithApiKey = originalUrl.newBuilder()
             .addQueryParameter(WEATHER_API_KEY_PARAMETER_ID, WEATHER_API_KEY)

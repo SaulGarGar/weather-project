@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiWeatherService {
-    @GET
-    fun getWeatherByCity(@Query(CITY_PARAMETER_ID) city: String): WeatherByCityResponse
+    @GET("2.5/weather")
+    suspend fun getWeatherByCity(@Query(CITY_PARAMETER_ID) city: String): WeatherByCityResponse
 }
