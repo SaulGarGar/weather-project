@@ -13,7 +13,8 @@ class WeatherRepositoryImpl @Inject constructor(
 ) : WeatherRepository {
     override suspend fun getWeatherByCity(city: String): Result<WeatherByCity> {
         return safeApiCall {
-            apiWeatherService.getWeatherByCity(city).toDomain()
+            val weather = apiWeatherService.getWeatherByCity(city)
+            weather.toDomain()
         }
     }
 }

@@ -9,6 +9,7 @@ data class WeatherByCity(
     val country: String,
     val sunrise: Long,
     val sunset: Long,
+    val weatherMain: String,
     val coordinates: Coordinates
 )
 

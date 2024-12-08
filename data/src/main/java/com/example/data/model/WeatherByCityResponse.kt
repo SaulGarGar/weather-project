@@ -78,6 +78,7 @@ fun WeatherByCityResponse.toDomain(): WeatherByCity {
         country = sys.country,
         sunrise = sys.sunrise,
         sunset = sys.sunset,
+        weatherMain = weather[0].main,
         coordinates = Coordinates(
             longitude = coord.lon,
             latitude = coord.lat
