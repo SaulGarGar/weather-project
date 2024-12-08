@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.weatherproject.homeScreen.viewModel.WeatherUiState
+import com.example.weatherproject.util.*
 import kotlinx.coroutines.flow.StateFlow
 
 @Composable
@@ -19,13 +20,29 @@ fun MainContent(
 ) {
     val state by weatherState.collectAsState()
 
-    val cities = listOf("Los Angeles", "San Francisco", "Toronto")
+    val cities = listOf(
+        HOME_DEFAULT_CITY,
+        MEXICO_CITY_LIST_NAME,
+        TORONTO_LIST_NAME,
+        VANCOUVER_LIST_NAME,
+        SAN_FRANCISCO_LIST_NAME,
+        PARIS_LIST_NAME,
+        MERIDA_LIST_NAME,
+        ROMA_LIST_NAME,
+        MEDELLIN_CITY_LIST_NAME,
+        RIO_DE_JANEIRO_LIST_NAME,
+        ALASKA_LIST_NAME
+        )
+
     var selectedCity by remember { mutableStateOf(cities.first()) }
 
     Column(
         modifier = modifier.padding(16.dp)
     ) {
-        Text(text = "Select a city:")
+        Text(
+            text = SELECT_A_CITY_LABEL,
+            color = Color.White
+        )
         Spacer(modifier = Modifier.height(8.dp))
 
         CityDropdownMenu(
@@ -41,7 +58,14 @@ fun MainContent(
 
         when (state) {
             is WeatherUiState.Loading -> {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ){
+                    CircularProgressIndicator(
+                        color = Color.White
+                    )
+                }
             }
 
             is WeatherUiState.Success -> {

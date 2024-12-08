@@ -74,10 +74,7 @@ fun WeatherByCityResponse.toDomain(): WeatherByCity {
         temperature = main.temp,
         description = weather.firstOrNull()?.description ?: "No description",
         humidity = main.humidity,
-        windSpeed = wind.speed,
         country = sys.country,
-        sunrise = sys.sunrise,
-        sunset = sys.sunset,
         weatherMain = weather[0].main,
         coordinates = Coordinates(
             longitude = coord.lon,

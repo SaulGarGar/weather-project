@@ -5,10 +5,7 @@ data class WeatherByCity(
     val temperature: Double,
     val description: String,
     val humidity: Int,
-    val windSpeed: Double,
     val country: String,
-    val sunrise: Long,
-    val sunset: Long,
     val weatherMain: String,
     val coordinates: Coordinates
 )
