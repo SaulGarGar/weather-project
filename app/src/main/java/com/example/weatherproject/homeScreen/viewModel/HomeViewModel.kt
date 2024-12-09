@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getWeatherUseCase: GetWeatherUseCase
-): ViewModel(){
+) : ViewModel() {
 
     private val _weatherState = MutableStateFlow<WeatherUiState>(WeatherUiState.Idle)
     val weatherState: StateFlow<WeatherUiState> = _weatherState
@@ -23,13 +23,15 @@ class HomeViewModel @Inject constructor(
     fun getWeatherByCity(city: String) {
         _weatherState.value = WeatherUiState.Loading
         viewModelScope.launch {
-            getWeatherUseCase.invoke(city).collect{ result ->
-                when(result) {
+            getWeatherUseCase.invoke(city).collect { result ->
+                when (result) {
                     is Result.Success -> {
                         _weatherState.value = WeatherUiState.Success(result.data)
                     }
+
                     is Result.Error -> {
-                        _weatherState.value = WeatherUiState.Error(result.exception.message ?: "Unknown error")
+                        _weatherState.value =
+                            WeatherUiState.Error(result.exception.message ?: "Unknown error")
                     }
                 }
             }

@@ -42,7 +42,7 @@ fun MainContent(
         MEDELLIN_CITY_LIST_NAME,
         RIO_DE_JANEIRO_LIST_NAME,
         ALASKA_LIST_NAME
-        )
+    )
 
     var selectedCity by remember { mutableStateOf(cities.first()) }
 
@@ -71,7 +71,7 @@ fun MainContent(
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
-                ){
+                ) {
                     CircularProgressIndicator(
                         color = Color.White
                     )
@@ -84,10 +84,11 @@ fun MainContent(
             }
 
             is WeatherUiState.Error -> {
-                Box(modifier = Modifier
-                    .clip(RoundedCornerShape(2.dp))
-                    .fillMaxWidth()
-                    .padding(start = 16.dp, end = 16.dp, bottom = 40.dp),
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(2.dp))
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp, bottom = 40.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     Column {

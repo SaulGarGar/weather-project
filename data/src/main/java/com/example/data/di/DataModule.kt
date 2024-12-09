@@ -32,16 +32,11 @@ object DataModule {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
-        val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(ApiKeyInterceptor())
-            .addInterceptor(loggingInterceptor)
-            .build()
+        val okHttpClient = OkHttpClient.Builder().addInterceptor(ApiKeyInterceptor())
+            .addInterceptor(loggingInterceptor).build()
 
-        return Retrofit.Builder()
-            .baseUrl(WEATHER_BASE_URL)
-            .client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .build()
+        return Retrofit.Builder().baseUrl(WEATHER_BASE_URL).client(okHttpClient)
+            .addConverterFactory(MoshiConverterFactory.create(moshi)).build()
     }
 
     @Provides

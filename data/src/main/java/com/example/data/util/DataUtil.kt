@@ -17,6 +17,7 @@ suspend fun <T> safeApiCall(apiCall: suspend () -> T): Result<T> {
                     else -> ApiException(API_EXCEPTION_ERROR, throwable)
                 }
             }
+
             else -> UnknownException(UNKNOWN_EXCEPTION_ERROR, throwable)
         }
         Result.Error(exception)

@@ -24,8 +24,7 @@ data class WeatherByCityResponse(
 
 @JsonClass(generateAdapter = true)
 data class Coord(
-    @Json(name = "lon") val lon: Double,
-    @Json(name = "lat") val lat: Double
+    @Json(name = "lon") val lon: Double, @Json(name = "lat") val lat: Double
 )
 
 @JsonClass(generateAdapter = true)
@@ -50,8 +49,7 @@ data class Main(
 
 @JsonClass(generateAdapter = true)
 data class Wind(
-    @Json(name = "speed") val speed: Double,
-    @Json(name = "deg") val deg: Int
+    @Json(name = "speed") val speed: Double, @Json(name = "deg") val deg: Int
 )
 
 @JsonClass(generateAdapter = true)
@@ -77,8 +75,7 @@ fun WeatherByCityResponse.toDomain(): WeatherByCity {
         country = sys.country,
         weatherMain = weather[0].main,
         coordinates = Coordinates(
-            longitude = coord.lon,
-            latitude = coord.lat
+            longitude = coord.lon, latitude = coord.lat
         )
     )
 }
