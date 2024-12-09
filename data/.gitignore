@@ -1,0 +1,23 @@
+/build
+# Gradle files
+.gradle/
+build/
+.gradle-cache/
+
+# IDE files
+.idea/
+*.iml
+
+# Kotlin/Java compiler outputs
+out/
+*.class
+
+# Generated Room files
+**/databinding/
+**/generated/
+
+# Log files
+*.log
+
+# Miscellaneous
+.DS_Store
