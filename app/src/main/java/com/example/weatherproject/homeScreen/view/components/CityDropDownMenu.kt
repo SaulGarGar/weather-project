@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.weatherproject.util.DROPDOWN_ICON_LABEL
 
 @Composable
 fun CityDropdownMenu(
@@ -48,7 +49,7 @@ fun CityDropdownMenu(
             )
             Icon(
                 painter = painterResource(id = android.R.drawable.arrow_down_float),
-                contentDescription = "Dropdown Icon",
+                contentDescription = DROPDOWN_ICON_LABEL,
                 tint = Color.Black
             )
         }

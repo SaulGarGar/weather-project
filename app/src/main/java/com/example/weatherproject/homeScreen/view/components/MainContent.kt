@@ -113,7 +113,7 @@ fun MainContent(
 
             else -> {
                 Text(
-                    text = "Select a city to get the weather.",
+                    text = DEFAULT_STATE_LABEL,
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
             }
