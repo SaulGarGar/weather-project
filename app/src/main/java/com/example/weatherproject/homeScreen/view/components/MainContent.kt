@@ -1,13 +1,22 @@
 package com.example.weatherproject.homeScreen.view.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.rememberLottieComposition
+import com.example.weatherproject.R
 import com.example.weatherproject.homeScreen.viewModel.WeatherUiState
 import com.example.weatherproject.util.*
 import kotlinx.coroutines.flow.StateFlow
@@ -19,6 +28,7 @@ fun MainContent(
     onCitySelected: (String) -> Unit
 ) {
     val state by weatherState.collectAsState()
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.error_animation))
 
     val cities = listOf(
         HOME_DEFAULT_CITY,
@@ -74,11 +84,30 @@ fun MainContent(
             }
 
             is WeatherUiState.Error -> {
-                Text(
-                    text = (state as WeatherUiState.Error).message,
-                    color = Color.Red,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
+                Box(modifier = Modifier
+                    .clip(RoundedCornerShape(2.dp))
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, bottom = 40.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column {
+                        LottieAnimation(
+                            composition = composition,
+                            modifier = Modifier
+                                .size(300.dp)
+                                .align(Alignment.CenterHorizontally)
+                                .padding(bottom = 24.dp),
+                            iterations = LottieConstants.IterateForever
+                        )
+                        Text(
+                            text = (state as WeatherUiState.Error).message,
+                            color = Color.White,
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                    }
+                }
             }
 
             else -> {

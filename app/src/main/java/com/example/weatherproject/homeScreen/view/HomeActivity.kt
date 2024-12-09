@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import com.example.weatherproject.homeScreen.view.components.MainContent
 import com.example.weatherproject.homeScreen.viewModel.HomeViewModel
 import com.example.weatherproject.ui.theme.LightBlue
-import com.example.weatherproject.ui.theme.Purple40
 import com.example.weatherproject.ui.theme.WeatherProjectTheme
 import com.example.weatherproject.util.HOME_DEFAULT_CITY
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,7 +38,7 @@ class MainActivity : ComponentActivity() {
             WeatherProjectTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    containerColor = LightBlue // Fondo principal definido como azul claro
+                    containerColor = LightBlue
                 ) { innerPadding ->
                     MainContent(
                         modifier = Modifier.padding(innerPadding),
